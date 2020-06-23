@@ -9,17 +9,36 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import in.shadowfax.proswipebutton.ProSwipeButton;
 
 public class MainActivity extends AppCompatActivity {
     ProSwipeButton proSwipeBtn;
-
+    TextView call;
+    Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        call=(TextView)findViewById(R.id.textView_call);
+        btn=(Button)findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "call clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         proSwipeBtn = (ProSwipeButton) findViewById(R.id.awesome_btn);
         proSwipeBtn.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
             @Override
